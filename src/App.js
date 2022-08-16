@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-function App() {
+import React from 'react';
+import { AlbumApp } from './AlbumApp';
+import { UsersApp } from './UsersApp';
+import { NavBar } from './NavBar';
+import { PostApp } from './PostApp';
+import { CommentApp } from './CommentApp';
+import { PhotosApp } from './PhotosApp';
+import { TodosApp } from './TodosApp';
+
+
+
+export const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavBar/>
+     <Routes>
+         <Route path="/users" element= {<UsersApp/>} />
+         <Route path="/album" element= {<AlbumApp/>} />
+         <Route path="/post" element= {<PostApp/>} />
+         <Route path="/comment" element= {<CommentApp/>}/>
+         <Route path="/photo" element= {<PhotosApp/>}/>
+         <Route path="/todos" element= {<TodosApp/>}/>
+     </Routes>
+    </Router>
   );
 }
-
-export default App;
